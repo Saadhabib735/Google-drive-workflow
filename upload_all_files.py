@@ -3,7 +3,7 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
-FOLDER_ID = '1aPneu8d9rQKC_9Wbr7FAK-pRzcUyN_VN?usp=sharing'  # Replace with your folder ID
+FOLDER_ID = '1aPneu8d9rQKC_9Wbr7FAK-pRzcUyN_VN'  # Replace with your folder ID
 SCOPES = ['https://www.googleapis.com/auth/drive']
 SERVICE_ACCOUNT_FILE = 'credentials.json'
 
