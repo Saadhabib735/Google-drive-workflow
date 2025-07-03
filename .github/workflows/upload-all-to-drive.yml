@@ -1,1 +1,30 @@
+name: Upload All Files to Google Drive
+
+on:
+  push:
+    branches:
+      - main  # Trigger when PR is merged into main
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
+
+      - name: Save credentials
+        run: echo "${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}" > credentials.json
+
+      - name: Upload all files to Google Drive
+        run: python upload_all_files.py
 
